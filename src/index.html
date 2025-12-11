@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  
+  <!-- Primary Meta Tags -->
+  <title>Резерв ID - Військово-обліковий документ</title>
+  <meta name="title" content="Резерв ID - Військово-обліковий документ">
+  <meta name="description" content="Цифровий військово-обліковий документ">
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#e0dfcb">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Резерв ID">
+  
+  <!-- iOS Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Резерв ID">
+  
+  <!-- iOS Icons -->
+  <link rel="apple-touch-icon" href="/Rezervplus/icon-placeholder.svg">
+  <link rel="apple-touch-icon" sizes="152x152" href="/Rezervplus/icon-152x152.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Rezervplus/icon-180x180.svg">
+  <link rel="apple-touch-icon" sizes="192x192" href="/Rezervplus/icon-192x192.svg">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="/Rezervplus/manifest.json">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/Rezervplus/favicon.svg">
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+  <script>
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/Rezervplus/service-worker.js')
+          .then(registration => console.log('SW registered:', registration))
+          .catch(error => console.log('SW registration failed:', error));
+      });
+    }
+  </script>
+</body>
+</html>

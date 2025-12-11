@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Офлайн - Резерв ID</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: #e0dfcb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .offline-container {
+      text-align: center;
+      max-width: 400px;
+    }
+    
+    .icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 30px;
+      background: #d5d3be;
+      border: 3px solid #a4a290;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      font-weight: bold;
+      color: #68491b;
+      position: relative;
+    }
+    
+    .icon::after {
+      content: '📡';
+      position: absolute;
+      font-size: 40px;
+      top: -10px;
+      right: -10px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+    
+    h1 {
+      color: #68491b;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    
+    p {
+      color: #68491b;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      opacity: 0.8;
+    }
+    
+    .button {
+      background: #fc8a0e;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .button:hover {
+      background: #e07a00;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(252, 138, 14, 0.3);
+    }
+    
+    .button:active {
+      transform: translateY(0);
+    }
+    
+    .status {
+      margin-top: 24px;
+      padding: 12px 20px;
+      background: rgba(104, 73, 27, 0.1);
+      border-radius: 8px;
+      font-size: 14px;
+      color: #68491b;
+    }
+    
+    .loading {
+      display: none;
+      margin-top: 20px;
+    }
+    
+    .loading.active {
+      display: block;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      border: 4px solid #d5d3be;
+      border-top: 4px solid #fc8a0e;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <div class="icon">R</div>
+    <h1>Немає з'єднання</h1>
+    <p>Схоже, ви зараз офлайн. Перевірте підключення до інтернету та спробуйте ще раз.</p>
+    
+    <button class="button" onclick="checkConnection()">Спробувати знову</button>
+    
+    <div class="status" id="status">
+      Статус: Офлайн 🔴
+    </div>
+    
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  
+  <script>
+    function checkConnection() {
+      const loading = document.getElementById('loading');
+      const status = document.getElementById('status');
+      
+      loading.classList.add('active');
+      status.textContent = 'Перевіряємо з\'єднання...';
+      
+      fetch('/Rezervplus/', { method: 'HEAD' })
+        .then(() => {
+          status.textContent = 'З\'єднання відновлено! 🟢';
+          setTimeout(() => {
+            window.location.href = '/Rezervplus/';
+          }, 500);
+        })
+        .catch(() => {
+          loading.classList.remove('active');
+          status.textContent = 'Статус: Все ще офлайн 🔴';
+        });
+    }
+    
+    // Auto-check connection every 30 seconds
+    setInterval(() => {
+      if (navigator.onLine) {
+        checkConnection();
+      }
+    }, 30000);
+    
+    // Listen for online event
+    window.addEventListener('online', () => {
+      checkConnection();
+    });
+  </script>
+</body>
+</html>
