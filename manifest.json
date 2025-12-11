@@ -1,0 +1,54 @@
+{
+  "name": "Резерв ID",
+  "short_name": "Резерв",
+  "start_url": "/Rezervplus/",
+  "scope": "/Rezervplus/",
+  "display": "standalone",
+  "background_color": "#e0dfcb",
+  "theme_color": "#e0dfcb",
+  "orientation": "portrait-primary",
+  "description": "Військово-обліковий документ",
+  "icons": [
+    {
+      "src": "/Rezervplus/icon-placeholder.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/Rezervplus/icon-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "any"
+    },
+    {
+      "src": "/Rezervplus/icon-192x192.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/Rezervplus/icon-512x512.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Відкрити Резерв ID",
+      "short_name": "Резерв",
+      "description": "Швидкий доступ до ID картки",
+      "url": "/Rezervplus/",
+      "icons": [
+        {
+          "src": "/Rezervplus/icon-192x192.svg",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "screenshots": [],
+  "categories": ["utilities", "productivity"],
+  "lang": "uk"
+}

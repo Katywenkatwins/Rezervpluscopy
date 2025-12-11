@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Фон -->
+  <rect width="512" height="512" fill="#e0dfcb"/>
+  
+  <!-- Зовнішній бордер -->
+  <rect x="10" y="10" width="492" height="492" stroke="#68491b" stroke-width="20" fill="none"/>
+  
+  <!-- Внутрішній прямокутник -->
+  <rect x="80" y="80" width="352" height="352" fill="#d5d3be" stroke="#a4a290" stroke-width="8"/>
+  
+  <!-- Літера R -->
+  <text x="256" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="240" font-weight="bold" fill="#68491b" text-anchor="middle">R</text>
+</svg>

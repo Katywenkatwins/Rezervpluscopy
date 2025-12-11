@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="152" height="152" viewBox="0 0 152 152">
+  <rect width="152" height="152" fill="#e0dfcb"/>
+  <rect x="4" y="4" width="144" height="144" fill="none" stroke="#68491b" stroke-width="8"/>
+  <rect x="23" y="23" width="106" height="106" fill="#d5d3be"/>
+  <rect x="23" y="23" width="106" height="106" fill="none" stroke="#a4a290" stroke-width="3"/>
+  <text x="76" y="91" font-family="system-ui, -apple-system, sans-serif" font-size="76" font-weight="bold" fill="#68491b" text-anchor="middle">R</text>
+</svg>
